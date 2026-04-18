@@ -1,0 +1,211 @@
+﻿body{margin:0;padding:0;background:#ffe;font-size:14px;font-family:'微软雅黑','宋体',sans-serif;color:#231F20;overflow:auto}
+a {color:#000;font-size:14px;}
+#main{width:100%;}
+#wrap{position:relative;margin:0 auto;width:1100px;height:680px;margin-top:10px;}
+#text{width:400px;height:425px;left:140px;top:52px;position:absolute;}
+#code{display:none;font-size:16px;}
+#clock-box {position:absolute;left:60px;top:550px;font-size:28px;display:none;}
+#clock-box a {font-size:28px;text-decoration:none;}
+#clock{margin-left:48px;}
+#clock .digit {font-size:64px;}
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+#error{margin:0 auto;text-align:center;margin-top:60px;display:none;}
+.hand{cursor:pointer;}
+.say{margin-left:-86px;}
+.space{margin-right:150px;}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    #wrap {
+        width: 100%;
+        height: 100vh;
+        margin-top: 0;
+        overflow: hidden;
+    }
+    
+    /* 纵向显示 - 适配所有iPhone机型 */
+    @media (orientation: portrait) {
+        #text {
+            width: 90%;
+            left: 5%;
+            top: 3%;
+            font-size: 13px;
+            height: auto;
+            max-height: 40%;
+            overflow-y: auto;
+        }
+        
+        #code {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        
+        #clock-box {
+            left: 5%;
+            top: 45%;
+            font-size: 16px;
+            width: 90%;
+        }
+        
+        #clock-box a {
+            font-size: 16px;
+        }
+        
+        #clock {
+            margin-left: 10px;
+        }
+        
+        #clock .digit {
+            font-size: 32px;
+        }
+        
+        .say {
+            margin-left: -20px;
+        }
+    }
+    
+    /* 横向显示 */
+    @media (orientation: landscape) {
+        #text {
+            width: 45%;
+            left: 3%;
+            top: 5%;
+            font-size: 11px;
+            max-height: 35%;
+        }
+        
+        #code {
+            font-size: 11px;
+            line-height: 1.4;
+        }
+        
+        #clock-box {
+            left: 3%;
+            top: 45%;
+            font-size: 14px;
+            width: 94%;
+        }
+        
+        #clock-box a {
+            font-size: 14px;
+        }
+        
+        #clock {
+            margin-left: 10px;
+        }
+        
+        #clock .digit {
+            font-size: 24px;
+        }
+        
+        .say {
+            margin-left: -20px;
+        }
+    }
+}
+
+/* 小屏幕设备 */
+@media (max-width: 480px) {
+    #text {
+        width: 90%;
+        left: 5%;
+    }
+    
+    #clock-box {
+        left: 5%;
+    }
+    
+    #clock .digit {
+        font-size: 24px;
+    }
+    
+    .say {
+        margin-left: -20px;
+    }
+}
+
+/* iPhone机型特殊优化 */
+@media (max-width: 430px) and (orientation: portrait) {
+    /* iPhone 14/15 Pro Max */
+    #text {
+        top: 2%;
+        font-size: 12px;
+        max-height: 35%;
+    }
+    
+    #code {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+    
+    #clock-box {
+        top: 40%;
+        font-size: 15px;
+    }
+    
+    #clock .digit {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 393px) and (orientation: portrait) {
+    /* iPhone 14/15 Pro */
+    #text {
+        top: 2%;
+        font-size: 11.5px;
+        max-height: 35%;
+    }
+    
+    #clock-box {
+        top: 40%;
+        font-size: 14px;
+    }
+    
+    #clock .digit {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 375px) and (orientation: portrait) {
+    /* iPhone SE/mini */
+    #text {
+        top: 1.5%;
+        font-size: 11px;
+        max-height: 32%;
+    }
+    
+    #code {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+    
+    #clock-box {
+        top: 36%;
+        font-size: 13px;
+    }
+    
+    #clock .digit {
+        font-size: 24px;
+    }
+    
+    .say {
+        margin-left: -10px;
+    }
+}
+
+/* 刘海屏和全面屏适配 */
+@supports (padding-top: env(safe-area-inset-top)) {
+    @media (max-width: 768px) {
+        #wrap {
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+    }
+}
