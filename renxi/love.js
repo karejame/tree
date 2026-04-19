@@ -350,8 +350,9 @@
             while (true) {
                 x = random(20, width - 20);
                 y = random(20, height - 20);
-                // 调整心形区域的计算，适应纵向屏幕
-                var centerY = height * 0.6; // 心形中心在屏幕下方
+                // 横屏/PC：树根在85%，树冠中心约在42%；竖屏保持原有位置
+                var isPortrait = width < height;
+                var centerY = isPortrait ? height * 0.6 : height * 0.42;
                 if (inheart(x - width / 2, centerY - y, radius)) {
                     return new Bloom(this, new Point(x, y), figure, color, alpha, angle, scale, place, speed);
                 }
